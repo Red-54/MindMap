@@ -1,0 +1,8 @@
+Flask
+google-generativeai
+protobuf 
+PyPDF2
+python-pptx
+Pillow
+requests
+playwright

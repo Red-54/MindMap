@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mermaid Diagram Generator</title>
+</head>
+<body>
+    <h1>Upload a File</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">Generate Diagrams</button>
+    </form>
+
+    {% if image_paths %}
+        <h2>Generated Diagrams</h2>
+        <div>
+        {% for image_path in image_paths %}
+            <img src="{{ url_for('static', filename=image_path) }}" alt="Mermaid Diagram"> 
+            <a href="{{ url_for('static', filename=image_path) }}" download>Download</a> <br>
+        {% endfor %}
+        </div>
+    {% endif %}
+
+</body>
+</html>
