@@ -1,3 +1,4 @@
+from os.path import exists
 from flask import Flask, render_template, request
 import os
 import google.generativeai as genai  # Replace with your Gemini API library 
@@ -12,7 +13,7 @@ import re
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'  # Folder for temporary file storage
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-
+os.makedirs('static',exist_ok=True)
 genai.configure(api_key=os.getenv("API_KEY")) 
 
 @app.route('/', methods=['GET', 'POST'])
